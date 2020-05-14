@@ -1,0 +1,25 @@
+
+# --- iml --- #
+*.iml
+
+# --- gradle --- #
+.gradle
+
+# --- local properties --- #
+/local.properties
+
+# --- idea folder --- #
+/.idea/*
+
+# --- mac ds store --- #
+.DS_Store
+
+# --- build --- #
+/build
+.externalNativeBuild
+
+# --- sreenshots --- #
+/captures
+
+# --- firebase --- #
+/app/google-services.json
