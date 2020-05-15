@@ -12,7 +12,6 @@ object Library {
 
     const val pomLicenseName = "MIT"
     const val pomLicenseUrl = "http://opensource.org/licenses/MIT"
-    const val pomLicenseDist = "repo"
 
     const val pomDeveloperId = "giacomo-parisi"
     const val pomDeveloperName = "Giacomo Parisi"
@@ -20,6 +19,5 @@ object Library {
 
     const val repo = "span-droid"
 
-    const val group = "com.giacomoparisi.span-droid"
-
+    const val group = "com.giacomoparisi.spandroid"
 }

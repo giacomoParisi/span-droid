@@ -73,19 +73,19 @@ tasks {
     }
 }
 
-val artifactName: String = project.name
+val artifactName: String = Library.name
 val artifactGroup: String = Library.group
 val artifactVersion: String = AndroidConfig.version_name
 
 publishing {
     publications {
-        create<MavenPublication>("auth-droid") {
+        create<MavenPublication>(Library.name) {
 
             groupId = artifactGroup
             artifactId = artifactName
             version = artifactVersion
 
-            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
+            artifact("$buildDir/outputs/aar/${project.name}-release.aar")
             artifact(tasks.getByName("sourcesJar"))
 
             pom {
@@ -131,7 +131,7 @@ bintray {
     key = gradleLocalProperties(rootDir).getProperty("bintray.apikey").toString()
     publish = true
 
-    setPublications("span-droid")
+    setPublications(Library.name)
 
     pkg.apply {
 
@@ -152,9 +152,7 @@ bintray {
             desc = Library.pomDescription
             vcsTag = artifactVersion
             gpg.sign = true
-            gpg.passphrase = gradleLocalProperties(
-                rootDir
-            ).getProperty("bintray.gpg.password")
+            gpg.passphrase = gradleLocalProperties(rootDir).getProperty("bintray.gpg.password")
         }
     }
 }
