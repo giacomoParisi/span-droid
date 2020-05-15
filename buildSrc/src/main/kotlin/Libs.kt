@@ -61,6 +61,23 @@ object Libs {
             Versions.de_fayard_buildsrcversions_gradle_plugin
 
     /**
+     * https://github.com/dcendents/android-maven-gradle-plugin
+     */
+    const val android_maven_gradle_plugin: String =
+            "com.github.dcendents:android-maven-gradle-plugin:" +
+            Versions.android_maven_gradle_plugin
+
+    const val dokka_android_gradle_plugin: String =
+            "org.jetbrains.dokka:dokka-android-gradle-plugin:" +
+            Versions.dokka_android_gradle_plugin
+
+    const val gradle_bintray_plugin: String = "com.jfrog.bintray.gradle:gradle-bintray-plugin:" +
+            Versions.gradle_bintray_plugin
+
+    const val dokka_gradle_plugin: String = "org.jetbrains.dokka:dokka-gradle-plugin:" +
+            Versions.dokka_gradle_plugin
+
+    /**
      * https://developer.android.com/testing
      */
     const val espresso_core: String = "androidx.test.espresso:espresso-core:" +

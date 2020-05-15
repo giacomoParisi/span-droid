@@ -22,6 +22,14 @@ object Versions {
 
     const val de_fayard_buildsrcversions_gradle_plugin: String = "0.7.0"
 
+    const val android_maven_gradle_plugin: String = "2.1"
+
+    const val dokka_android_gradle_plugin: String = "0.9.18"
+
+    const val gradle_bintray_plugin: String = "1.8.5"
+
+    const val dokka_gradle_plugin: String = "0.10.1"
+
     const val espresso_core: String = "3.2.0"
 
     const val lint_gradle: String = "26.6.3"
@@ -33,7 +41,7 @@ object Versions {
     const val aapt2: String = "3.6.3-6040484"
 
     /**
-     * Current version: "6.3"
+     * Current version: "6.4"
      * See issue 19: How to update Gradle itself?
      * https://github.com/jmfayard/buildSrcVersions/issues/19
      */
