@@ -1,2 +1,2 @@
 rootProject.name="SpanDroid"
-include(":app", ":spandroid")
+include(":app", ":span-droid")
