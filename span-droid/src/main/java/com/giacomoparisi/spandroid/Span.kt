@@ -75,7 +75,7 @@ sealed class Span {
     }
 
     object Underline : Span() {
-        override fun span(): Any = StrikethroughSpan()
+        override fun span(): Any = UnderlineSpan()
     }
 
     data class Click(
