@@ -1,8 +1,10 @@
 package com.giacomoparisi.spandroid
 
+import android.content.Context
 import android.content.res.Resources
 import android.os.Build
 import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
 import java.util.*
 
 internal class SpanDroidAppendable(
@@ -61,6 +63,18 @@ internal class SpanDroidAppendable(
         }
     }
 }
+
+fun Fragment.getSpannable(
+    @StringRes id: Int,
+    vararg spanParts: Pair<Any, List<Span>>
+): CharSequence =
+    requireContext().getSpannable(id, *spanParts)
+
+fun Context.getSpannable(
+    @StringRes id: Int,
+    vararg spanParts: Pair<Any, List<Span>>
+): CharSequence =
+    resources.getSpannable(id, *spanParts)
 
 fun Resources.getSpannable(
     @StringRes id: Int,
