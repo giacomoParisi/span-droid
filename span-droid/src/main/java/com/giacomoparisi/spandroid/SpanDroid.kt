@@ -14,7 +14,7 @@ class SpanDroid private constructor() {
 
     private val parts = ArrayList<CharSequence>()
     private var length = 0
-    private val spanMap: MutableMap<IntRange, Iterable<Any>> = HashMap()
+    private val spanMap: MutableMap<IntRange, List<Span>> = HashMap()
 
     fun appendSpace(newText: CharSequence): SpanDroid =
         this.append(" ").append(newText)
@@ -55,7 +55,7 @@ class SpanDroid private constructor() {
                     val range = entry.key
                     entry.value.forEach {
                         spannableString.setSpan(
-                            it,
+                            it.span(),
                             range.first,
                             range.last,
                             SPAN_EXCLUSIVE_EXCLUSIVE
