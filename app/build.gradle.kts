@@ -2,10 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
-    kotlin("android.extensions")
 }
-
-androidExtensions { isExperimental = true }
 
 android {
 
