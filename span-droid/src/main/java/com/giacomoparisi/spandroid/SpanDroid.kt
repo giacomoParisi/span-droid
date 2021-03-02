@@ -10,57 +10,64 @@ import android.text.TextUtils.concat
  * With this creator we able to construct our spannable string part by part and also,
  * assign special spans for each part.
  */
-class SpanDroid {
+class SpanDroid private constructor() {
 
     private val parts = ArrayList<CharSequence>()
     private var length = 0
     private val spanMap: MutableMap<IntRange, Iterable<Any>> = HashMap()
 
     fun appendSpace(newText: CharSequence): SpanDroid =
-            this.append(" ").append(newText)
+        this.append(" ").append(newText)
 
-    fun appendSpace(newText: CharSequence, spans: Iterable<Any>): SpanDroid =
-            this.append(" ").append(newText, spans)
+    fun appendSpace(newText: CharSequence, vararg spans: Span): SpanDroid =
+        this.append(" ").append(newText, *spans)
 
-    fun appendLnNotBlank(newText: CharSequence, spans: Iterable<Any>): SpanDroid =
-            this.applyIf({ !newText.isBlank() }) { this.appendLn(newText, spans) }
+    fun appendLnNotBlank(newText: CharSequence, vararg spans: Span): SpanDroid =
+        this.applyIf({ newText.isNotBlank() }) { this.appendLn(newText, *spans) }
 
-    fun appendLn(newText: CharSequence, spans: Iterable<Any>): SpanDroid =
-            this.append("\n").append(newText, spans)
+    fun appendLn(newText: CharSequence, vararg spans: Span): SpanDroid =
+        this.append("\n").append(newText, *spans)
 
-    fun append(newText: CharSequence, spans: Iterable<Any>): SpanDroid =
-            apply {
-                val end = newText.length
-                this.parts.add(newText)
-                this.spanMap[(length..length + end)] = spans
-                this.length += end
-            }
+    fun append(newText: CharSequence, vararg spans: Span): SpanDroid =
+        apply {
+            val end = newText.length
+            this.parts.add(newText)
+            this.spanMap[(length..length + end)] = spans.toList()
+            this.length += end
+        }
 
     fun append(newText: CharSequence): SpanDroid =
-            apply {
-                this.parts.add(newText)
-                this.length += newText.length
-            }
+        apply {
+            this.parts.add(newText)
+            this.length += newText.length
+        }
 
     inline fun applyIf(
-            predicate: () -> Boolean,
-            action: SpanDroid.() -> SpanDroid
+        predicate: () -> Boolean,
+        action: SpanDroid.() -> SpanDroid
     ): SpanDroid =
-            if (predicate()) action() else this
+        if (predicate()) action() else this
 
     fun toSpannableString(): SpannableString =
-            SpannableString(concat(*parts.toTypedArray()))
-                    .also { spannableString ->
-                        spanMap.forEach { entry ->
-                            val range = entry.key
-                            entry.value.forEach {
-                                spannableString.setSpan(
-                                        it,
-                                        range.first,
-                                        range.last,
-                                        SPAN_EXCLUSIVE_EXCLUSIVE
-                                )
-                            }
-                        }
+        SpannableString(concat(*parts.toTypedArray()))
+            .also { spannableString ->
+                spanMap.forEach { entry ->
+                    val range = entry.key
+                    entry.value.forEach {
+                        spannableString.setSpan(
+                            it,
+                            range.first,
+                            range.last,
+                            SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
                     }
+                }
+            }
+
+    companion object {
+
+        fun span(): SpanDroid = SpanDroid()
+
+    }
+
 }
