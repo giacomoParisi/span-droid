@@ -50,3 +50,18 @@ dependencies {
     androidTestImplementation(Libs.espresso_core)
 
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            create<MavenPublication>("release") {
+
+                // You can then customize attributes of the publication as shown below.
+                group = "com.github.giacomoparisi"
+                artifactId = "span-droid"
+                version = "2.2"
+            }
+        }
+    }
+}
