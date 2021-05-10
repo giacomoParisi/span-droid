@@ -6,12 +6,12 @@ plugins {
 
 android {
 
-    compileSdkVersion(AndroidConfig.compile_sdk)
+    compileSdk = AndroidConfig.compile_sdk
 
     defaultConfig {
         applicationId = "com.giacomoparisi.spandroid"
-        minSdkVersion(AndroidConfig.min_sdk)
-        targetSdkVersion(AndroidConfig.target_sdk)
+        minSdk = AndroidConfig.min_sdk
+        targetSdk = AndroidConfig.target_sdk
         versionCode = AndroidConfig.version_code
         versionName = AndroidConfig.version_name
         testInstrumentationRunner = AndroidConfig.test_instrumentation_runner

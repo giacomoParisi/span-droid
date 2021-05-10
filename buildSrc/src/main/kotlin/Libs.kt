@@ -10,19 +10,6 @@ object Libs {
     /**
      * https://kotlinlang.org/
      */
-    const val kotlin_android_extensions: String =
-            "org.jetbrains.kotlin:kotlin-android-extensions:" + Versions.org_jetbrains_kotlin
-
-    /**
-     * https://kotlinlang.org/
-     */
-    const val kotlin_android_extensions_runtime: String =
-            "org.jetbrains.kotlin:kotlin-android-extensions-runtime:" +
-            Versions.org_jetbrains_kotlin
-
-    /**
-     * https://kotlinlang.org/
-     */
     const val kotlin_annotation_processing_gradle: String =
             "org.jetbrains.kotlin:kotlin-annotation-processing-gradle:" +
             Versions.org_jetbrains_kotlin
@@ -40,7 +27,7 @@ object Libs {
             Versions.org_jetbrains_kotlin
 
     /**
-     * https://developer.android.com/studio
+     * http://tools.android.com/
      */
     const val com_android_tools_build_gradle: String = "com.android.tools.build:gradle:" +
             Versions.com_android_tools_build_gradle
@@ -74,6 +61,9 @@ object Libs {
     const val gradle_bintray_plugin: String = "com.jfrog.bintray.gradle:gradle-bintray-plugin:" +
             Versions.gradle_bintray_plugin
 
+    /**
+     * https://github.com/Kotlin/dokka
+     */
     const val dokka_gradle_plugin: String = "org.jetbrains.dokka:dokka-gradle-plugin:" +
             Versions.dokka_gradle_plugin
 
@@ -84,7 +74,7 @@ object Libs {
             Versions.espresso_core
 
     /**
-     * https://developer.android.com/studio
+     * http://tools.android.com/
      */
     const val lint_gradle: String = "com.android.tools.lint:lint-gradle:" + Versions.lint_gradle
 
@@ -99,7 +89,7 @@ object Libs {
     const val core_ktx: String = "androidx.core:core-ktx:" + Versions.core_ktx
 
     /**
-     * https://developer.android.com/studio
+     * http://tools.android.com/
      */
     const val aapt2: String = "com.android.tools.build:aapt2:" + Versions.aapt2
 }
