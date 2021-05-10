@@ -2,7 +2,7 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("kapt")
-    id("com.github.dcendents.android-maven")
+    id("maven-publish")
 }
 group = "com.github.giacomoparisi"
 
