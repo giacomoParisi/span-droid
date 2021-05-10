@@ -51,12 +51,23 @@ dependencies {
 
 }
 
+tasks {
+
+    register("androidSourcesJar", Jar::class) {
+        archiveClassifier.set("sources")
+        from(project.android.sourceSets.getByName("main").java.name)
+    }
+
+}
+
 afterEvaluate {
     publishing {
         publications {
             // Creates a Maven publication called "release".
             create<MavenPublication>("release") {
 
+                artifact("$buildDir/outputs/aar/${project.name}-release.aar")
+                artifact(tasks.getByName("androidSourcesJar"))
                 // You can then customize attributes of the publication as shown below.
                 group = "com.github.giacomoparisi"
                 artifactId = "span-droid"
