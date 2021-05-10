@@ -1,10 +1,8 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
 plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("kapt")
-    id("maven-publish")
+    id("com.github.dcendents.android-maven")
 }
 group = "com.github.giacomoparisi"
 
@@ -38,17 +36,17 @@ dependencies {
 
     /* --- kotlin --- */
 
-    implementation (Libs.kotlin_stdlib_jdk7)
-    implementation (Libs.core_ktx)
+    implementation(Libs.kotlin_stdlib_jdk7)
+    implementation(Libs.core_ktx)
 
     /* --- android --- */
 
-    implementation (Libs.appcompat)
+    implementation(Libs.appcompat)
 
     /* --- test --- */
 
-    testImplementation (Libs.junit_junit)
-    androidTestImplementation (Libs.androidx_test_ext_junit)
-    androidTestImplementation (Libs.espresso_core)
+    testImplementation(Libs.junit_junit)
+    androidTestImplementation(Libs.androidx_test_ext_junit)
+    androidTestImplementation(Libs.espresso_core)
 
 }
